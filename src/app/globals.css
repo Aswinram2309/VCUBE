@@ -1,0 +1,138 @@
+@import "tailwindcss";
+
+:root {
+  --ivory: #f5f2ec;
+  --off-white: #faf9f6;
+  --charcoal: #242421;
+  --bronze: #9b8467;
+  --bronze-ink: #745f44;
+  --bronze-soft: #b59e80;
+  --warm-grey: #aaa49b;
+  --ink-muted: #625c52;
+  --status-error: #8c3b2b;
+  --hairline: rgba(36, 36, 33, 0.14);
+  --hairline-dark: rgba(250, 249, 246, 0.14);
+}
+
+@theme inline {
+  --color-ivory: var(--ivory);
+  --color-off-white: var(--off-white);
+  --color-charcoal: var(--charcoal);
+  --color-bronze: var(--bronze);
+  --color-bronze-ink: var(--bronze-ink);
+  --color-bronze-soft: var(--bronze-soft);
+  --color-warm-grey: var(--warm-grey);
+  --color-ink-muted: var(--ink-muted);
+  --color-status-error: var(--status-error);
+  --font-serif: var(--font-cormorant), Georgia, "Times New Roman", serif;
+  --font-sans: var(--font-manrope), -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: var(--ivory);
+  color: var(--charcoal);
+  caret-color: var(--bronze-ink);
+  scrollbar-color: rgba(116, 95, 68, 0.4) var(--ivory);
+  scrollbar-width: thin;
+}
+
+body {
+  background-color: var(--ivory);
+  color: var(--charcoal);
+  font-family: var(--font-manrope), -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  line-height: 1.65;
+  overflow-x: clip;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@layer base {
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+}
+
+::selection {
+  background-color: var(--bronze-ink);
+  color: var(--off-white);
+}
+
+:focus-visible {
+  outline: 2px solid var(--bronze-ink);
+  outline-offset: 3px;
+}
+
+[data-surface="dark"] :focus-visible,
+[data-surface="dark"]:focus-visible {
+  outline: 2px solid var(--bronze-soft);
+  outline-offset: 3px;
+}
+
+a {
+  text-underline-offset: 0.25em;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--ivory);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(116, 95, 68, 0.38);
+  border: 2px solid var(--ivory);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--bronze-ink);
+}
+
+.font-editorial {
+  font-family: var(--font-cormorant), Georgia, "Times New Roman", serif;
+}
+
+.editorial-eyebrow {
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+}
+
+.hairline-rule {
+  height: 1px;
+  background-color: var(--hairline);
+}
+
+.hairline-rule-dark {
+  height: 1px;
+  background-color: var(--hairline-dark);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+@media print {
+  header,
+  .vcube-no-print {
+    display: none !important;
+  }
+
+  body {
+    background-color: #ffffff;
+    color: #242421;
+  }
+}
